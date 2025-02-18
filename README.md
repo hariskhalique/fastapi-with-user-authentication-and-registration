@@ -175,9 +175,4 @@ This project is licensed under the **MIT License**.
 
 ## **📧 Contact**
 📩 **Email**: haris_khalique2001@yahoo.com  
-🐙 **GitHub**: [haris-khalique2001](https://github.com/haris-khalique2001)  
-
----
-
-🚀 **Now your FastAPI Hexagonal Microservice with Kafka is documented and ready to use!** 🎉  
-Would you like to include additional Kafka consumer examples in the future? 🔄
+🐙 **GitHub**: [haris-khalique2001](https://github.com/haris-khalique2001)
