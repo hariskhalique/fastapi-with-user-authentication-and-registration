@@ -12,6 +12,8 @@ class Config(BaseSettings):
     APP_ENV: str = Field(..., description="Application environment ('development', 'production')")
     DEBUG: bool = Field(..., description="Debug mode")
     SECRET_KEY: str = Field(..., description="Secret key for jwt token")
+    ACCESS_TOKEN_EXPIRE_MINUTES: float = Field(..., description="Token to Expire")
+    REFRESH_SECRET_KEY: str = Field(..., description="Key to refresh token")
 
     class Config:
         env_file = ".env"

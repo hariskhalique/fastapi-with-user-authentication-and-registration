@@ -31,6 +31,7 @@ class UserBase(BaseUser[PydanticObjectId]):
     two_factor_secret: str | None = None
     two_factor_backup_codes: list[str] | None = None
     preferred_language: str = "en"  # Default to English
+    refresh_token: str | None = None
 
 class User(BeanieBaseUserDocument, UserBase):
     @override

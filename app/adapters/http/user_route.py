@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 from app.application.user_loggedin_usecase import UserLoggedUseCase, get_loggedin_use_case
 from app.application.user_register_usercase import UserRegisterUseCase, get_register_use_case
-from app.domain.services.auth_service import AuthService, get_auth_service
+from app.application.refresh_token_usecase import RefreshTokenUseCase, get_refresh_token_use_case
 from app.adapters.out.database.entities.user import UserCreate
 
 router = APIRouter()
@@ -24,3 +24,12 @@ async def login_user(
     """ Login user and return JWT """
     access_token = await user_loggedin_use_case.execute(form_data.username, form_data.password)
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.post("/refresh")
+async def refresh_token(
+    refresh_token: str,
+    refresh_token_use_case: RefreshTokenUseCase = Depends(get_refresh_token_use_case),
+):
+    """ Refresh access token using a valid refresh token """
+    new_access_token = await refresh_token_use_case.execute(refresh_token)
+    return {"access_token": new_access_token, "token_type": "bearer"}
